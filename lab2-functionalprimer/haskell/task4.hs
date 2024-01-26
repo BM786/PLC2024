@@ -1,14 +1,18 @@
-ask :: String -> IO ()
-ask prompt =
-  do
-  putStrLn prompt
+ask :: String -> Int -> IO ()
+ask prompt count = do
+  let promptWithExclamation = prompt + replicate count '!'
+  putStrLn promptWithExclamation
   line <- getLine
-  if line == ""
-    then ask prompt
-    else putStrLn ("you said: " ++ reverse line)
+  if line == "quit"
+    then putStrLn "quitting. . ."
+    else if line == ""
+    then ask prompt (count + 1)
+    else do
+    putStrLn ("you said: " ++ reverse line)
+    ask prompt 0
 
 main :: IO ()
 main =
   do
-  let prompt = "please say something"
-  ask prompt
+  let initialPrompt = "please say something"
+  ask initialPrompt 0
