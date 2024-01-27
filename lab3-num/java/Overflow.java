@@ -64,6 +64,7 @@ public class Overflow
         {
             int next_ns = ns * n;
 //             assert ?? : "power: Integer overflow";
+            assert !(n > 0 && ns > Integer.MAX_VALUE / n) && !(n < 0 && ns < Integer.MIN_VALUE / n) : "power: Integer overflow";
             resultList.add(next_ns);
             ns = next_ns;
         }
