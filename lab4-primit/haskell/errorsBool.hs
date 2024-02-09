@@ -34,7 +34,7 @@ error2Result err
     | err == FP_Rounding  = ABitDifferent
     | err == FP_Overflow  = Infinity
     | err == FP_Underflow = Zero
-    |           otherwise = VeryDifferent
+    | err == Int_Overflow = VeryDifferent
 
 -- The code below should not be changed and does not need to be fully understood.
 
