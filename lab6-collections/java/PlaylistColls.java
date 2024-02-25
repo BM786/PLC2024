@@ -103,7 +103,10 @@ public class PlaylistColls {
 
         List<Float> shortItemLengths1 = new ArrayList<>();
         // TASK 6.2(b)...        
-
+            shortItemLengths1 = playlist1.stream()
+              .filter(item -> item.length_secs < 20.0f)
+              .map(item -> item.length_secs)
+              .collect(Collectors.toList());
 
 
 

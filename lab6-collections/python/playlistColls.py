@@ -58,7 +58,7 @@ things = [111, piece1, "hello", advert1, [piece2]]
 
 print("things = %s" % things)
 
-piecesFromThings = "todo" #TASK 5.3.(c) -- replace "todo" by a list comprehension
+piecesFromThings = [thing for thing in things if isinstance(thing, Piece)] #TASK 5.3.(c) -- replace "todo" by a list comprehension
 
 print("piecesFromThings = %s" % piecesFromThings)
 
@@ -74,7 +74,7 @@ playlist1noAds = [ item for item in playlist1 if item.__class__ != Advert ]
 
 print("playlist1noAds = %s" % playlist1noAds)
 
-shortItemLenghts1 = ["todo"] # TASK 6.3.(b) -- replace "todo" by a list comprehension
+short_item_lengths1 = [item.length_secs for item in playlist1 if item.length_secs < 20.0] # TASK 6.3.(b) -- replace "todo" by a list comprehension
 
 print("shortItemLenghts1 = %s" % shortItemLenghts1)
 

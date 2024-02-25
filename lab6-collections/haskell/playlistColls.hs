@@ -55,9 +55,9 @@ playlist2 = [piece2, advert1]
 
 playlists = [playlist1, playlist2] -- a list of lists
 
-adsFromPlaylists = "todo" -- TASK 6.4(b)
+adsFromPlaylists playlists = [advert | playlist <- playlists, item <- playlist, advert <- getAdvert item] -- TASK 6.4(b)
 
-shortItemLenghts1 = "todo" -- TASK 6.4(a)
+shortItemLengths1 = [lengthSecs | item <- playlist1, let lengthSecs = length_secs item, lengthSecs < 20.0] -- TASK 6.4(a)
 
 main =
     do
